@@ -1,4 +1,5 @@
 [![Apache License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
+[![Build Status](https://travis-ci.org/zukka77/Shibboleth-IdP4-TOTP-Auth.svg?branch=master)](https://travis-ci.org/zukka77/Shibboleth-IdP4-TOTP-Auth)
 # This is a fork of joeFischetti/Shibboleth-IdP3-TOTP-Auth trying to target Shibboleth IDP v4
 Under this line there is the original documentation:
 
