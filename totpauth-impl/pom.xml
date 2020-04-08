@@ -16,16 +16,12 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
 
         <!-- Compile Dependencies -->
         <dependency>
             <groupId>live.pinger.shibboleth</groupId>
             <artifactId>totpauth-api</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>net.shibboleth.idp</groupId>
