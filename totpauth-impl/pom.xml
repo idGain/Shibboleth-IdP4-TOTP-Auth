@@ -5,7 +5,7 @@
     <parent>
         <groupId>live.pinger.shibboleth</groupId>
         <artifactId>totpauth-parent</artifactId>
-        <version>${totpauth.parent.version}</version>
+        <version>1.3</version>
     </parent>
     <artifactId>totpauth-impl</artifactId>
     <name>totpauth-impl</name>
