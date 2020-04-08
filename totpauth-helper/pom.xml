@@ -5,7 +5,7 @@
     <parent>
         <groupId>live.pinger.shibboleth</groupId>
         <artifactId>totpauth-parent</artifactId>
-        <version>1.2</version>
+        <version>${totpauth.parent.version}</version>
     </parent>
     <artifactId>totpauth-helper</artifactId>
     <name>totpauth-helper</name>
@@ -14,11 +14,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>com.warrenstrange</groupId>
             <artifactId>googleauth</artifactId>
@@ -55,7 +50,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.1.1</version>
-
                 <configuration>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
@@ -67,7 +61,6 @@
                         </manifest>
                     </archive>
                 </configuration>
-
                 <executions>
                     <execution>
                         <id>make-assembly</id>
@@ -82,7 +75,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-      
                 <configuration>
                     <archive>
                         <manifest>
@@ -91,9 +83,7 @@
                         </manifest>
                     </archive>
                 </configuration>
-        
             </plugin>
-        
         </plugins>
     </build>
 </project>
