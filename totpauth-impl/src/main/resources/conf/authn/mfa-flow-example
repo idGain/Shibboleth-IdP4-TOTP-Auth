@@ -7,7 +7,7 @@
                 // Check if second factor is necessary for request to be satisfied.
                 authCtx = input.getSubcontext("net.shibboleth.idp.authn.context.AuthenticationContext");
                 mfaCtx = authCtx.getSubcontext("net.shibboleth.idp.authn.context.MultiFactorAuthenticationContext");
-                if (mfaCtx.isAcceptable()  && profileContext.isBrowserProfile() ) {
+                if (!mfaCtx.isAcceptable()  && profileContext.isBrowserProfile() ) {
                  // Attribute check is required to decide if first factor alone is enough.
                 resCtx = input.getSubcontext("net.shibboleth.idp.attribute.resolver.context.AttributeResolutionContext", true);
 
