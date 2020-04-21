@@ -9,7 +9,7 @@ import javax.annotation.Nullable;
 public class TokenUserContext extends BaseContext {
 
   public enum AuthState {
-        OK, ERROR, MISSING_SEED, REGISTER, CANT_VALIDATE, UNKNOWN
+        OK, ERROR, MISSING_SEED,  CANT_VALIDATE, UNKNOWN
   }
 
   /** The username. */
@@ -32,9 +32,7 @@ public class TokenUserContext extends BaseContext {
   
   /** Get error messages. */
   public String getErrorMessage() {
-	  if (this.getState() == AuthState.REGISTER) {
-		  return "You have to register at least one valid token";
-	  } else if (this.getState() == AuthState.CANT_VALIDATE) {
+	 if (this.getState() == AuthState.CANT_VALIDATE) {
 		  return "Invalid Token Code. Try again.";
 	  }
 	return "";

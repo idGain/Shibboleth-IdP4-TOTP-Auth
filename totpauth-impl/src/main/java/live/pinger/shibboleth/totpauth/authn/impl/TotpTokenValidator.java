@@ -168,14 +168,7 @@ public class TotpTokenValidator extends AbstractValidationAction implements Toke
 				log.info("{} Failed login attempts", getLogPrefix(), tokenCtx.getFailedAttempts());
 			}
 
-			//If the user hasn't registered for a token, we should print something out to the page
-			//	So they know to contact the appropriate people
-			if (tokenCtx.getState() == AuthState.REGISTER) {
-				log.info("{} User: {} has not registered token", getLogPrefix(), username);
-				handleError(profileRequestContext, authenticationContext, "RegisterToken",
-						AuthnEventIds.ACCOUNT_ERROR);
-				return;
-			}
+		
 
 			//If we got this far and result is false, it means they didn't auth
 			if (!result) {
