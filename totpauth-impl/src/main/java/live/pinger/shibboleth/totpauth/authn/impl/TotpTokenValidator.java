@@ -10,6 +10,8 @@ import org.opensaml.profile.context.ProfileRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.warrenstrange.googleauth.GoogleAuthenticator;
+import java.security.Principal;
+import java.util.List;
 import java.util.function.Function;
 
 import live.pinger.shibboleth.totpauth.api.authn.SeedFetcher;
@@ -20,9 +22,12 @@ import net.shibboleth.idp.session.context.navigate.CanonicalUsernameLookupStrate
 import net.shibboleth.idp.authn.AbstractValidationAction;
 import net.shibboleth.idp.authn.AuthnEventIds;
 import net.shibboleth.idp.authn.context.AuthenticationContext;
+import net.shibboleth.idp.authn.context.RequestedPrincipalContext;
 import net.shibboleth.idp.authn.principal.UsernamePrincipal;
+import net.shibboleth.idp.saml.authn.principal.AuthnContextClassRefPrincipal;
 import net.shibboleth.utilities.java.support.annotation.constraint.NotEmpty;
 import net.shibboleth.utilities.java.support.primitive.StringSupport;
+import org.opensaml.saml.saml2.core.AuthnContext;
 
 /**
  * Validates users TOTP token code against injected authenticator
@@ -115,7 +120,7 @@ public class TotpTokenValidator extends AbstractValidationAction implements Toke
 		//log output
 		log.debug("{} Entering totpValidator for username: {}", getLogPrefix(),username);
 
-
+               
 		try {
 			
 			//Create a new TokenUserContext
@@ -151,8 +156,8 @@ public class TotpTokenValidator extends AbstractValidationAction implements Toke
 						//We got a valid result
 						log.info("{} Token authentication success for user: {}", getLogPrefix(), username);
 						tokenCtx.setState(AuthState.OK);
-
-						//Return
+                                                buildAuthenticationResult(profileRequestContext, authenticationContext);
+                                                //Return
 						return;
 					}
 				}
